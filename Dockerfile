@@ -1,7 +1,7 @@
 FROM redis:alpine
 
 RUN mkdir /src
-WORKDIR /src
+WORKDIR /
 
 ENV DEBIAN_FRONTEND noninteractive
 
