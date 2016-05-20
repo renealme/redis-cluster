@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 IP=${IP}
 M1_PORT=${M1_PORT}
