@@ -15,4 +15,4 @@ RUN chmod +x /start-cluster.sh
 
 VOLUME ["/data"]
 
-CMD ["/start-redis.sh"]
+CMD ["-f","/start-redis.sh"]
