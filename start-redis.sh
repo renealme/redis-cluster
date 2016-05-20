@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PORT=${PORT}
 REDIS_CONFIGURATION_FILE=/etc/redis.conf
