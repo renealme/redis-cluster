@@ -1,5 +1,7 @@
 FROM redis:3
 
+RUN apk add --update supervisor ruby ruby-dev redis && gem install --no-ri --no-rdoc redis
+
 COPY redis-trib.rb /usr/bin/redis-trib.rb
 COPY start-redis.sh /start-redis.sh
 COPY start-cluster.sh /start-cluster.sh
