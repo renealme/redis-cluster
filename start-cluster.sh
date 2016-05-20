@@ -9,5 +9,9 @@ R2_PORT=${R2_PORT}
 R3_PORT=${R3_PORT}
 LOG_FILE=/redis-cluster.log
 
+apt-get install ruby
+
+gem install redis
+
 ruby redis-trib.rb create --replicas 1 ${IP}:${M1_PORT} ${IP}:${M2_PORT} ${IP}:${M3_PORT} ${IP}:${R1_PORT} ${IP}:${R2_PORT} ${IP}:${R3_PORT} >> ${LOG_FILE} 
 tail -f ${LOG_FILE}
