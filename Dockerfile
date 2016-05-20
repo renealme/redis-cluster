@@ -1,4 +1,4 @@
-FROM redis:3
+FROM redis:alpine
 
 RUN apk add --update supervisor ruby ruby-dev redis && gem install --no-ri --no-rdoc redis
 
