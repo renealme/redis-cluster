@@ -17,4 +17,4 @@ RUN chmod +x /bin/start-cluster.sh
 
 VOLUME ["/data"]
 
-CMD ["sh /bin/start-redis.sh"]
+CMD ["./bin/start-redis.sh"]
