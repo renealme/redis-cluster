@@ -1,4 +1,5 @@
-FROM redis:alpine
+#FROM redis:alpine
+From alpine:edge
 
 RUN mkdir /src
 WORKDIR /src
@@ -14,7 +15,7 @@ COPY start-redis.sh /bin/start-redis.sh
 COPY start-cluster.sh /bin/start-cluster.sh
 RUN chmod +x /bin/start-redis.sh
 RUN chmod +x /bin/start-cluster.sh
-CMD ["ls /"]
+#CMD ["ls /"]
 VOLUME ["/data"]
 
 CMD . /bin/start-redis.sh
