@@ -1,5 +1,5 @@
-#FROM redis:alpine
-From alpine:edge
+FROM redis:alpine
+#From alpine:edge
 
 RUN mkdir /src
 WORKDIR /src
