@@ -2,6 +2,18 @@
 
 echo $PORT
 IP="9.7.116.148"
+
+while true
+do
+        echo -e "Waiting"
+        isUp=`redis-cli -p $PORT info`
+        echo -e "isUp $isUp"
+        if [ "$isUp" != "" ]; then
+                break
+        fi
+done
+
+
 for i in 7001 7002 7003 7004 7005 7006
 do
         echo $i
