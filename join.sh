@@ -22,14 +22,14 @@ do
         if [ $res=="" ]; then
                 echo "Empty Cluster"
         else
-                echo "continuemos......"
+                echo "Starting......"
                 res2=`redis-cli -p $i cluster nodes | grep master | grep -v fail | cut -f1 -d " "`
                 for c in $res2
                 do
                         res3=`redis-cli -p $i cluster slaves $c | grep -v fail`
                         if [ $res3=="" ]; then
                                 echo -e "c $c"
-                                echo "este es el bueno"
+                                echo "First Slaveless Master"
                                 portMaster=`redis-cli -p $i cluster nodes | grep master | grep -v fail | grep $c | cut -f2 -d " " | cut -f2 -d :`
                                 ruby redis-trib.rb add-node --slave $IP:$PORT $IP:$portMaster
                         fi
