@@ -24,7 +24,6 @@ do
                 do
                         res3=`redis-cli -p $i cluster slaves $c | grep -v fail`
                         if [ $res3=="" ]; then
-                                echo -e "c $c"
                                 portMaster=`redis-cli -p $i cluster nodes | grep master | grep -v fail | grep $c | cut -f2 -d " " | cut -f2 -d :`
                                 echo "-----------------First Slaveless Master $portMaster----------------------"
                                 ruby redis-trib.rb add-node --slave $IP:$PORT $IP:$portMaster
