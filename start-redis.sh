@@ -10,6 +10,6 @@ echo "cluster-config-file nodes.conf" >> $REDIS_CONFIGURATION_FILE
 echo "cluster-node-timeout 5000" >> $REDIS_CONFIGURATION_FILE
 echo "appendonly yes" >> $REDIS_CONFIGURATION_FILE
 
-/usr/local/bin/redis-server $REDIS_CONFIGURATION_FILE &
+/usr/local/bin/redis-server $REDIS_CONFIGURATION_FILE >> /&
 sleep 6
 /bin/join.sh 
