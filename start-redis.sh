@@ -12,4 +12,4 @@ echo "appendonly yes" >> $REDIS_CONFIGURATION_FILE
 
 nphub /usr/local/bin/redis-server $REDIS_CONFIGURATION_FILE &
 sleep 6
-sh /bin/join.sh
+/bin/join.sh >> /tmp/test.txt
