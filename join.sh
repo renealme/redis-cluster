@@ -5,9 +5,8 @@ IP="9.7.116.148"
 
 while true
 do
-        echo -e "Waiting"
+        echo -e "Waiting..."
         isUp=`redis-cli -p $PORT info`
-        echo -e "isUp $isUp"
         if [ "$isUp" != "" ]; then
                 break
         fi
