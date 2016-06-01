@@ -6,7 +6,7 @@ HAfile=/etc/haproxy/haproxy.cfg
 SSC=caldelas@caldelas-ThinkCentre-M92p
 tmpFile=/tmp/haproxy.cfg
 scp $SSC:$HAfile $tmpFile
-Ip=`hostname -I | cut -f1 -d " "`
+Ip=`ifconfig | grep "inet addr:9." | cut -f2 -d : | cut -f1 -d " "`
 #PORT=7015
 echo "PORT $PORT"
 ##
