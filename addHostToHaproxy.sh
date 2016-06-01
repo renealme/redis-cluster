@@ -3,7 +3,7 @@
 #Ip=`hostname -I |cut -f1 -d " "`
 
 HAfile=/etc/haproxy/haproxy.cfg
-SSC=caldelas@caldelas-ThinkCentre-M92p
+SSC=caldelas@9.7.121.55
 tmpFile=/tmp/haproxy.cfg
 scp $SSC:$HAfile $tmpFile
 Ip=`ifconfig | grep "inet addr:9." | cut -f2 -d : | cut -f1 -d " "`
