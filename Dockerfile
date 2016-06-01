@@ -6,6 +6,7 @@ WORKDIR /src
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apk add --update supervisor ruby ruby-dev redis && gem install --no-ri --no-rdoc redis
+RUN apt-get -qq update && apt-get install openssh-client
 
 ADD . /src/
 
