@@ -1,6 +1,6 @@
 #!/bin/sh
 
-Ip=`hostname -I |cut -f1 -d " "`
+#Ip=`hostname -I |cut -f1 -d " "`
 echo "IP $Ip"
 HAfile=/etc/haproxy/haproxy.cfg
 SSC=caldelas@caldelas-ThinkCentre-M92p
