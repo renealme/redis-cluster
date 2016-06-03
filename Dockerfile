@@ -16,7 +16,7 @@ COPY start-redis.sh /bin/start-redis.sh
 COPY start-cluster.sh /bin/start-cluster.sh
 COPY join.sh /bin/join.sh
 COPY addHostToHaproxy.sh /bin/addHostToHaproxy.sh
-COPY id_rsa "~/.ssh/id_rsa"
+COPY id_rsa /root/.ssh/id_rsa
 RUN chmod +x /bin/start-redis.sh
 RUN chmod +x /bin/start-cluster.sh
 RUN chmod +x /bin/join.sh
