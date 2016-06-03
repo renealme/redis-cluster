@@ -2,8 +2,7 @@
 
 PORT=${PORT}
 REDIS_CONFIGURATION_FILE=/etc/redis.conf
-cp id_rsa ~/.ssh/id_rsa
-cp ssh/id_rsa ~/.ssh/id_rsa
+
 echo "bind 0.0.0.0" > $REDIS_CONFIGURATION_FILE
 echo "port ${PORT}" >> $REDIS_CONFIGURATION_FILE
 echo "cluster-enabled yes" >> $REDIS_CONFIGURATION_FILE
