@@ -17,7 +17,7 @@ if [ "$exist" -eq 0 ]; then
         echo "Does not exist yet on the HAProxy.... Lets add it"
         echo "server redis_$PORT $Ip:$PORT check inter 1s" >> ${tmpFile}
         echo "tryng to copy...."
-        scp $tmpFile $SSC:/etc/haproxy
+        #scp $tmpFile $SSC:/etc/haproxy
         echo "server redis_$PORT $Ip:$PORT check inter 1s" |ssh $SSC "cat >> $HAfile"
         tail ${tmpFile}
         echo "file Copyed..."
