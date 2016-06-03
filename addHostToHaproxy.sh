@@ -18,6 +18,7 @@ if [ "$exist" -eq 0 ]; then
         echo "server redis_$PORT $Ip:$PORT check inter 1s" >> ${tmpFile}
         echo "tryng to copy...."
         scp $tmpFile $SSC:/etc/haproxy
+        echo "server redis_$PORT $Ip:$PORT check inter 1s" |ssh $SSC "cat >> $HAfile"
         sleep 2
         ## second try
         echo "---Second Try---"
