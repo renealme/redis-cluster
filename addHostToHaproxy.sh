@@ -21,6 +21,6 @@ if [ "$exist" -eq 0 ]; then
         echo "server redis_$PORT $Ip:$PORT check inter 1s" |ssh $SSC "cat >> $HAfile"
         tail ${tmpFile}
         echo "file Copyed..."
-        ssh $SSC "service haproxy restart"
+        #ssh $SSC "service haproxy restart"
 fi
 echo "Done"
