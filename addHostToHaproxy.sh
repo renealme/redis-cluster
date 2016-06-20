@@ -3,7 +3,7 @@
 #Ip=`hostname -I |cut -f1 -d " "`
 
 HAfile=/etc/haproxy/haproxy.cfg
-SSC=caldelas@9.7.121.55
+SSC=caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com
 tmpFile=/tmp/haproxy.cfg
 scp -o StrictHostKeyChecking=no $SSC:$HAfile $tmpFile
 Ip=`ifconfig | grep "inet addr:9." | cut -f2 -d : | cut -f1 -d " "`
@@ -21,5 +21,6 @@ if [ "$exist" -eq 0 ]; then
         echo "server redis_$PORT $Ip:$PORT check inter 1s" |ssh $SSC "cat >> $HAfile"
         tail ${tmpFile}
         echo "file Copyed..."
+        ssh $SSC "service haproxy restart"
 fi
 echo "Done"
