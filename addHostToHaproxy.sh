@@ -6,6 +6,7 @@ HAfile=/etc/haproxy/haproxy.cfg.tmp
 SSC=caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com
 tmpFile=/tmp/haproxy.cfg
 scp -o StrictHostKeyChecking=no $SSC:$HAfile $tmpFile
+echo $? -------remote cp
 Ip=`ifconfig |  grep -A 1 em1 | grep "addr:" | cut -f2 -d : | cut -f1 -d " "`
 echo "IP $Ip"
 #PORT=7015
@@ -19,6 +20,7 @@ if [ "$exist" -eq 0 ]; then
         echo "tryng to copy...."
         #scp $tmpFile $SSC:/etc/haproxy
         echo "server redis_$PORT $Ip:$PORT check inter 1s" |ssh $SSC "cat >> $HAfile"
+        echo $? ------- remote cat
         tail ${tmpFile}
         echo "file Copyed..."
         #ssh $SSC "service haproxy restart"
