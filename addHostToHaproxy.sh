@@ -8,6 +8,9 @@ tmpFile=/tmp/haproxy.cfg
 scp -o StrictHostKeyChecking=no $SSC:$HAfile $tmpFile
 echo $? -------remote cp
 Ip=`ifconfig |  grep -A 1 em1 | grep "addr:" | cut -f2 -d : | cut -f1 -d " "`
+if [ "$Ip" == "" ]; then
+        Ip=`ifconfig |  grep -A 1 eth0 | grep "addr:" | cut -f2 -d : | cut -f1 -d " "`
+fi
 echo "IP $Ip"
 #PORT=7015
 echo "PORT $PORT"
