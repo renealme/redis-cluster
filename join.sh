@@ -8,7 +8,7 @@ SSH="caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com"
 
 #get the Docker host IP
 IP=`ifconfig |  grep -A 1 em1 | grep "addr:" | cut -f2 -d : | cut -f1 -d " "`
-if [ $IP=="" ]; then
+if [ -z "$IP" ]; then
         IP=`ifconfig |  grep -A 1 eth0 | grep "inet:" | cut -f2 -d : | cut -f1 -d " "`
 fi
 ##
@@ -45,7 +45,7 @@ for i in $result; do
         #echo $i
         res=`redis-cli -h $Ip -p $Port cluster slots`
         echo  res $res
-        if [ $res=="" ] ; then
+        if [ -z "$res" ] ; then
                 echo "Empty Cluster " $res  
         else
                 echo "Starting......"
@@ -53,7 +53,7 @@ for i in $result; do
                 for c in $res2
                 do
                         res3=`redis-cli -h $Ip -p $Port cluster slaves $c | grep -v fail`
-                        if [ ${res3}=="" ]; then
+                        if [ -z "$res3" ]; then
                                 portMaster=`redis-cli -h $Ip -p $Port cluster nodes | grep master | grep -v fail | grep $c | cut -f2 -d " " | cut -f2 -d :`
                                 echo "-----------------First Slaveless Master $portMaster----------------------"
                                 # add anode as slave
