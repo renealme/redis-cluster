@@ -9,7 +9,8 @@ R2_PORT=${R2_PORT}
 R3_PORT=${R3_PORT}
 LOG_FILE=/redis-cluster.log
 
-result=`cat /etc/haproxy/haproxy.cfg | grep "^server" | cut -f3 -d " "`
+SSH="caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com"
+result=`ssh $SSH "cat /etc/haproxy/haproxy.cfg.tmp" | grep "^server" | cut -f3 -d " "`
 toCluster=""
 for i in $result; do
         Ip=`echo $i | cut -f1 -d:`
