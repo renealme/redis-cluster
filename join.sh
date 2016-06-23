@@ -9,7 +9,7 @@ SSH="caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com"
 #get the Docker host IP
 IP=`ifconfig |  grep -A 1 em1 | grep "addr:" | cut -f2 -d : | cut -f1 -d " "`
 if [ $IP=="" ]; then
-        IP=`ifconfig |  grep -A 1 eth0 | grep "addr:" | cut -f2 -d : | cut -f1 -d " "`
+        IP=`ifconfig |  grep -A 1 eth0 | grep "inet:" | cut -f2 -d : | cut -f1 -d " "`
 fi
 ##
 
