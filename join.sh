@@ -14,16 +14,16 @@ fi
 ##
 
 #whait until the redis for this container get ready
-#while true
-#do
- #       echo -e "Waiting..."
-  #      isUp=`redis-cli -h $Ip -p $PORT info`
-   #     if [ "$isUp" != "" ]; then
-    #            break
-     #   fi
-#done
+while true
+do
+        echo -e "Waiting..."
+        isUp=`redis-cli -h $IP -p $PORT info`
+        if [ "$isUp" != "" ]; then
+                break
+        fi
+done
 ##
-echo Ip $IP
+echo IP $IP
 
 #copy remote haproxy file to a local dir
 scp -o StrictHostKeyChecking=no $SSH:$HAfile $tmpFile
@@ -36,7 +36,7 @@ for i in $result; do
         Ip=`echo $i | cut -f1 -d:`
         Port=`echo $i | cut -f2 -d:`
         echo  -e " i = $i "
-        echo IP $Ip
+        echo Ip $Ip
         echo Port $Port
         toCluster="$toCluster $Ip:$Port"
 
@@ -57,7 +57,7 @@ for i in $result; do
                                 portMaster=`redis-cli -h $Ip -p $Port cluster nodes | grep master | grep -v fail | grep $c | cut -f2 -d " " | cut -f2 -d :`
                                 echo "-----------------First Slaveless Master $portMaster----------------------"
                                 # add anode as slave
-				ruby redis-trib.rb add-node --slave $IP:$PORT $IP:$portMaster
+				ruby redis-trib.rb add-node --slave $IP:$PORT $Ip:$portMaster
                         fi
                         if [ -n "$portMaster" ];then
                                  break
