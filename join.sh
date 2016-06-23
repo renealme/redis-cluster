@@ -12,12 +12,13 @@ if [ -z "$IP" ]; then
         IP=`ifconfig |  grep -A 1 eth0 | grep "inet:" | cut -f2 -d : | cut -f1 -d " "`
 fi
 ##
-
+echo IP $IP
 #whait until the redis for this container get ready
 while true
 do
-        echo -e "Waiting..."
+        echo -e "Waiting until redis container IP $IP PORT $PORT is up..."
         isUp=`redis-cli -h $IP -p $PORT info`
+        echo isIp $isUp
         if [ "$isUp" != "" ]; then
                 break
         fi
