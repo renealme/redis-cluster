@@ -3,7 +3,7 @@
 #Ip=`hostname -I |cut -f1 -d " "`
 
 HAfile=/etc/haproxy/haproxy.cfg.tmp
-SSC=caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com
+SSC=master1@master1mx.gdl.mex.ibm.com
 tmpFile=/tmp/haproxy.cfg
 scp -o StrictHostKeyChecking=no $SSC:$HAfile $tmpFile
 echo $? -------remote cp
