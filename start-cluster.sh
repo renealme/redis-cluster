@@ -11,7 +11,7 @@ LOG_FILE=/redis-cluster.log
 
 tmpFile=/tmp/haproxy.cfg
 HAfile=/etc/haproxy/haproxy.cfg.tmp
-SSH="caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com"
+SSH="master1@master1mx.gdl.mex.ibm.com"
 scp -o StrictHostKeyChecking=no $SSH:$HAfile $tmpFile
 result=`cat $tmpFile | grep "^server" | cut -f3 -d " "`
 toCluster=""
