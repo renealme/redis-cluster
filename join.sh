@@ -4,7 +4,7 @@
 #Declaring Variables
 tmpFile=/tmp/haproxy.cfg
 HAfile=/etc/haproxy/haproxy.cfg.tmp
-SSH="caldelas@caldelas-thinkcentre-m92p.gdl.mex.ibm.com"
+SSH="master1@master1mx.gdl.mex.ibm.com"
 
 #get the Docker host IP
 IP=`ifconfig |  grep -A 1 em1 | grep "addr:" | cut -f2 -d : | cut -f1 -d " "`
