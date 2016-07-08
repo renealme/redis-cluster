@@ -2,7 +2,7 @@
 
 #Ip=`hostname -I |cut -f1 -d " "`
 
-HAfile=/etc/haproxy/haproxy.cfg.tmp
+HAfile=/etc/haproxy/haproxy.cfg.tmp 
 SSC=master1@master1mx.gdl.mex.ibm.com
 tmpFile=/tmp/haproxy.cfg
 scp -o StrictHostKeyChecking=no $SSC:$HAfile $tmpFile
